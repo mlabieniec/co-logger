@@ -1,21 +1,21 @@
 {
   "name": "co-logger",
   "version": "0.0.7",
-  "description": "Winston based logger for CompoundJS",
+  "description": "Winston based logger for CompoundJS for AWS CloudWatch",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/bioform/co-logger.git"
+    "url": "git://github.com/mlabieniec/co-logger.git"
   },
   "keywords": [
     "compound",
     "logger",
     "winston"
   ],
-  "author": "Andrew Krasnoff <andrew.krasnoff@gmail.com>",
+  "author": "Andrew Krasnoff <andrew.krasnoff@gmail.com>, Michael Labieniec <michaellabieniec@gmail.com>",
   "license": "BSD",
   "dependencies": {
     "winston": "0.7.2"
