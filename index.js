@@ -36,7 +36,7 @@ logger.init = function(compound){
     
     var fs = require('fs');
 
-    var data = fs.readFileSync('./config.json'),
+    var data = fs.readFileSync('./aws.json'),
       aws;
     
     try {
