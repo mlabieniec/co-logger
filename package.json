@@ -11,7 +11,8 @@
     "url": "git://github.com/mlabieniec/co-logger.git"
   },
   "dependencies": {
-    "aws-sdk": "~2.0.23"
+    "winston": "0.7.2",
+    "winston-cloudwatch": "^0.3.0"
   },
   "keywords": [
     "compound",
@@ -19,8 +20,5 @@
     "winston"
   ],
   "author": "Andrew Krasnoff <andrew.krasnoff@gmail.com>, Michael Labieniec <michaellabieniec@gmail.com>",
-  "license": "BSD",
-  "dependencies": {
-    "winston": "0.7.2"
-  }
+  "license": "BSD"
 }

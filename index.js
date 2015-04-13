@@ -1,5 +1,6 @@
 var fs = require('fs');
 var winston = require('winston');
+var winstonCloudWatch = require('winston-cloudwatch');
 
 var logger = new (winston.Logger)({
   transports: [
@@ -32,15 +33,37 @@ logger.init = function(compound){
 
 	var logsDir = compound.root + '/log';
 	var logFile = compound.app.set('env') + '.log'
+    
+    var fs = require('fs');
 
+    var data = fs.readFileSync('./config.json'),
+      aws;
+    
+    try {
+        aws = JSON.parse(data);
+    }
+    catch (err) {
+        console.log('There has been an error parsing your aws.json config.')
+        console.log(err);
+    }
+    
 	var addTransport = function(){
-	    if (!fileTransportExists(logsDir, logFile)) {
-	        this.add(winston.transports.File, {
-		    filename: logsDir + '/' + logFile,
-		    handleExceptions: true,
-		    prettyPrint: true,
-		    json: false
-		});
+            if (!fileTransportExists(logsDir, logFile)) {
+                this.add(winston.transports.File, {
+                    filename: logsDir + '/' + logFile,
+                    handleExceptions: true,
+                    prettyPrint: true,
+                    json: false
+                });
+            }
+            if (aws) {
+                this.add(winstonCloudWatch, {
+                    logGroupName: aws.logGroupName,
+                    logStreamName: aws.logStreamName,
+                    awsAccessKeyId: aws.accessKeyId,
+                    awsSecretKey: aws.secretAccessKey,
+                    awsRegion: aws.region
+              });
             }
 	}.bind(this);
 
