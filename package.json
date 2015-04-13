@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git://github.com/mlabieniec/co-logger.git"
   },
+  "dependencies": {
+    "aws-sdk": "~2.0.23"
+  },
   "keywords": [
     "compound",
     "logger",
